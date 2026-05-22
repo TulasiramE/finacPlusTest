@@ -1,6 +1,6 @@
 import { test } from "@playwright/test"
-import LoginPage from '../Pages/LoginPage'
-import BookStorePage from '../Pages/BookStorePage'
+import LoginPage from '../PageObject/LoginPage'
+import BookStorePage from '../PageObject/BookStorePage'
 import CredentialsData from "../TestData/LoginData.json"
 
 test('DemoQA Book Store - POM Test', async ({ page }) => {
