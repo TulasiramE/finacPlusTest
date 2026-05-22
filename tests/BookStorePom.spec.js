@@ -1,6 +1,6 @@
-const { test } = require('@playwright/test');
-const LoginPage = require('../Pages/LoginPage');
-const BookStorePage = require('../Pages/BookStorePage');
+import { test } from "@playwright/test"
+import LoginPage from '../Pages/LoginPage'
+import BookStorePage from '../Pages/BookStorePage'
 import CredentialsData from "../TestData/LoginData.json"
 
 test('DemoQA Book Store - POM Test', async ({ page }) => {
@@ -13,7 +13,6 @@ test('DemoQA Book Store - POM Test', async ({ page }) => {
   await loginPage.goto();
   await loginPage.login(CredentialsData.Username,CredentialsData.Password);
   await loginPage.validateLogin(CredentialsData.Username);
-
   // Book Store actions
   await bookStorePage.openBookStore();
   await bookStorePage.searchBook(BookName);
