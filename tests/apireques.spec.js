@@ -1,12 +1,10 @@
 import { test, expect } from '@playwright/test';
-
-const BASE_URL = 'https://reqres.in/api';
-
+const URL = 'https://reqres.in/api';
 
 test.describe('Reqres API Automation', () => {
 
   test('Create a new user', async ({ request }) => {
-    const response = await request.post(`${BASE_URL}/users`, {
+    const response = await request.post(`${URL}/users`, {
       headers: {
         "x-api-key": "reqres_66f608ca2da14fcfbda8a7bc6cf8637b",
         "Content-Type": "application/json"
@@ -26,15 +24,13 @@ test.describe('Reqres API Automation', () => {
     expect(body.job).toBe('QA Engineer');
   });
 
-
 test('Get the user details', async ({ request }) => {
-  const response = await request.get(`${BASE_URL}/users/2`, {
+  const response = await request.get(`${URL}/users/2`, {
     headers: { 
       "x-api-key": "reqres_66f608ca2da14fcfbda8a7bc6cf8637b"
      }
   });
   expect(response.status()).toBe(200);
-
   const body = await response.json();
   expect(body.data.id).toBe(2);
 });
@@ -43,7 +39,7 @@ test('Get the user details', async ({ request }) => {
 
 
   test('Update user name', async ({ request }) => {
-    const response = await request.put(`${BASE_URL}/users/2`, {
+    const response = await request.put(`${URL}/users/2`, {
      headers: {
         "x-api-key": "reqres_66f608ca2da14fcfbda8a7bc6cf8637b",
         "Content-Type": "application/json"
